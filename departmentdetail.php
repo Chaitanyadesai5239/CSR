@@ -29,11 +29,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="departmentdetail.js"></script>
 
 	</head>
 		
-		<body >
+		<body ng-app="myApp" ng-controller="myCtrl">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -69,15 +70,10 @@
 		</div>
 		</div><br>
 		
-		
-		
-		
-		
-		
-		
 		<hr>
 		<div style="margin-left:94%">
-		<button class="btn btn-primary" name="submit" >Submit</button>
+		<button class="btn btn-primary" name="submit" ng-click="submit();" >Submit</button>
+		<div>{{msg}}</div>
 		
 		</div>
 		</div>
