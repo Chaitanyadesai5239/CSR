@@ -93,12 +93,12 @@
 		<label>Gender :</label><br>
 		<div class="radio-inline">
         <label>
-        <input type="radio" name="gender" id="optionsRadios1" value="mail" na-model="gender" >Mail
+        <input type="radio" name="gender" id="optionsRadios1" value="mail" ng-model="gender" >Mail
          </label>
 		 </div>
 		 <div class="radio-inline">
          <label>
-         <input type="radio" name="gender" id="optionsRadios2" value="femail"  na-model="gender" >Femail
+         <input type="radio" name="gender" id="optionsRadios2" value="femail"  ng-model="gender" >Femail
          </label>
         </div>
 		</div>
