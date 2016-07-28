@@ -29,11 +29,12 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="vendorsdetails.js"></script>
 
 	</head>
 		
-	<body >
+	<body ng-app="myApp" ng-controller="myCtrl">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -51,14 +52,20 @@
 		
 		
 		<div class="row">
+		
+		<div class="col-md-2">
+		<label>Vendor ID:</label>
+		<input type="text" class="form-control"  name="vid" ng-model="vid">
+		</div>
+		
 		<div class="col-md-4">
 		<label>Vendor Name:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="vname" ng-model="vname">
 		</div>
 			
 		<div class="col-sm-4">
 		<label >Vendor Type:</label>
-		<select class="form-control "  >
+		<select class="form-control " name="vtype" ng-model="vtype" >
 		  <option>--Select--</option>
 			<option>#</option>
 			<option>#</option>
@@ -71,7 +78,7 @@
 		<div class="row">
 		<div class="col-md-12">
 		<label > Address:</label>
-		<input type="text" class="form-control"  name="address">
+		<input type="text" class="form-control"  name="address" ng-model="address">
 		</div>
 		
 		</div><br>
@@ -82,12 +89,12 @@
 		
 		<div class="col-md-4">
 		<label>City:</label>
-		<input type="text" class="form-control"  name="city">
+		<input type="text" class="form-control"  name="city" ng-model="city">
 		</div>
 		
 		<div class="col-md-4">
 		<label>Contact Details:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="contactd" ng-model="contactd">
 		</div>
 		
 		
@@ -95,7 +102,7 @@
 		
 		<div class="col-md-4">
 		<label>Email ID:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="email" ng-model="email">
 		</div>
 		</div><br>
 		
@@ -103,20 +110,21 @@
 		<div class="row">
 		<div class="col-md-4">
 		<label>Status:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="status" ng-model="status">
 		</div>
 		
 		
 		<div class="col-md-4">
 		<label>Compliances:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="compliances" ng-model="compliances">
 		</div>
 		</div>
 		
 		
 	<hr>
 	
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" ng-click="submit();">Submit</button>
+	{{msg}}
 	</div>
 	
 	</form>
