@@ -21,7 +21,7 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO employee_details (EMP_ID,DEP_ID,First_Name,Middle_Name,Last_Name,gender,birth_date,hire_date,email_id,mobile_no)
-    VALUES ($EMP_ID, $DEP_ID ,'$First_Name', '$Middle_Name','$Last_Name','$gender','$birth_date','$hire_date','$email_id','$mobile_no')";
+    VALUES ('$EMP_ID', $DEP_ID ,'$First_Name', '$Middle_Name','$Last_Name','$gender','$birth_date','$hire_date','$email_id','$mobile_no')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";

@@ -1,11 +1,18 @@
 
 	var app = angular.module('myApp', []);
 	app.controller('myCtrl',function($scope,$http){
-		
+		//$scope.employeeid = 'E001'
+		$scope.loadEmpId = function(){
+			//alert("In loadEmpId()");
+			$http.get('fetch_empid.php').then(function(response){
+				$scope.employeeid = response.data;
+			});
+		}
 		$scope.loadDepartments = function(){
 			//alert("In loadDepartments()");
 			$http.get('fetch_dep.php').then(function(response){
 				$scope.deps = response.data;
+				$scope.loadEmpId();
 			});
 		}
 		
