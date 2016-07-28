@@ -112,7 +112,6 @@
 							<hr>
 							<div style="margin-left:94%">
 								<button class="btn btn-primary" name="submit" ng-click="insert()">Submit</button>
-								<div>{{msg}}</div>
 							</div>
 						</div>
 					</form>
