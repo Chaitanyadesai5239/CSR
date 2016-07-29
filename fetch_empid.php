@@ -15,7 +15,7 @@
 		$test = $stmt->fetch(PDO::FETCH_ASSOC);
 		$id = (int)$test['maxID'];
 		
-		echo"E".$id+1;
+		echo"E".($id+1);
 	}
 	catch(PDOException $e) {
 		echo "Error: " . $e->getMessage();

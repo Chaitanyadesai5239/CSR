@@ -17,14 +17,16 @@
 		}
 		
 		$scope.insert = function(){
-			alert($scope.employeeid+" , "+$scope.departmentname.DEP_ID+" , "+$scope.fname+" , "+$scope.mname+" , "+$scope.lname
-					+" , "+$scope.gender+" , "+$scope.bdate+" , "+$scope.hdate+" , "+$scope.email+" , "+$scope.mobilen);
+			/*alert($scope.employeeid+" , "+$scope.departmentname.DEP_ID+" , "+$scope.fname+" , "+$scope.mname+" , "+$scope.lname
+					+" , "+$scope.gender+" , "+$scope.bdate+" , "+$scope.hdate+" , "+$scope.email+" , "+$scope.mobilen);*/
 			$http.post("employeeeinsert.php",{'employeeid':$scope.employeeid,'depid':$scope.departmentname.DEP_ID,'fname':$scope.fname,
 						'mname':$scope.mname,'lname':$scope.lname,'gender':$scope.gender,'bdate':$scope.bdate,
 						'hdate':$scope.hdate,'email':$scope.email,'mobilen':$scope.mobilen})
 			.success(function(data,status,headers,config){
 				$scope.msg="Data inserted successfully";
 				$scope.clearform();
+				alert("Data insert successfully.");
+				window.location = "employeeedisplay.php";
 			});
 		}
 	
