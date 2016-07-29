@@ -60,6 +60,10 @@
 		<div class="jumbotron">
 		<h3 style="align:center">Client Details</h3>
 		</div>
+		
+		<a href="client.php"><button class="btn btn-success">ADD</button></a>
+		{{msg}}
+		<hr>
 	
 	
 	

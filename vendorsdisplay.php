@@ -30,12 +30,27 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-	<script src="departmentdetail.js"></script>
+	<script src="vendorsdetails.js"></script>
+	
+	<style>
+	table, th , td {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+	}
+	table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+	}
+	table tr:nth-child(even) {
+  background-color: #ffffff;
+	}
+	</style>
+	
 
 	</head>
-		
-		<body ng-app="myApp" ng-controller="myCtrl" ng-init="loaddepartmentid();">
-		<div id="wrapper" >
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="getdata()">
+	
+	<div id="wrapper" >
 		<?php
 		include('header.php');		
 		?>
@@ -43,54 +58,45 @@
 	
 		<div class="container">
 		<div class="jumbotron">
-		<h3 style="align:center">Department Detail</h3>
-		</div>
-		<form name="departmentdetail" novalidate>
-		
-		
-		<div class="form-group">
-		<div class="row">
-		<div class="col-sm-2">
-		<label>Department ID:</label>
-		<input type="text" name="departmentid" ng-model="departmentid" class="form-control" required readonly>
+		<h3 style="align:center">Client Details</h3>
 		</div>
 		
-		<div class="col-sm-10">
-		<label>Department Name:</label>
-		<input type="text" name="departmentname" ng-model="departmentname" class="form-control" required>
-		
-		</div>
-		</div><br>
-		
-		
-		<div class="row">
-		<div class="col-sm-12">
-		<label>Description:</label>
-		<textarea type="text" name="description" ng-model="description" class="form-control" required></textarea>
-		</div>
-		</div><br>
-		
+		<a href="vendorsdetails.php"><button class="btn btn-success">ADD</button></a>
+		{{msg}}
 		<hr>
-		<div style="margin-left:94%">
-		<button class="btn btn-primary" name="submit" ng-click="submit();" >Submit</button>
-		<div>{{msg}}</div>
+	
+	
+	
+	<table class="table table-bordered" >
+		<th>ID</th><th>Vendor ID </th><th>Vendor Name</th><th>Vendor Type</th><th>Address</th><th>City</th><th>Contact_Details</th><th>Email_ID</th><th>Status</th><th>Compliances</th>
+		<tr ng-repeat="x in names">
+				<td>{{x.id}}</td>
+				<td>{{x.Vendor_ID}}</td>
+				<td>{{x.Vendor_Name}}</td>
+				<td>{{x.Vendor_Type}}</td>
+				<td>{{x.Address}}</td>
+				<td>{{x.City}}</td>
+				<td>{{x.Contact_Details}}</td>
+				<td>{{x.Email_ID}}</td>
+				<td>{{x.Status}}</td>
+				<td>{{x.Compliances}}</td>
+				<!--<td><button class="btn btn-success">Edit</button></td>
+				<td><button class="btn btn-warning" ng-click="delete(detail.id);">Delete</button></td>-->
+			</tr>
+		</table>
+		  
 		
+	
 		</div>
-		</div>
-		
-		</form>
-		</div>
-		</div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    
-    <!-- /#wrapper -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+			</div>
+				</div>
+	
+	
+	
+	
+	
+	
+	<script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -99,6 +105,7 @@
     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>
     <script src="js/plugins/morris/morris-data.js"></script>
+	
 	<?php
 	include('footer1.php');
 	

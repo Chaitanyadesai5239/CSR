@@ -1,6 +1,6 @@
 
 var app = angular.module('myApp', []);
-app.controller('myCtrl',function($scope,$http){
+app.controller('myCtrl',function($scope,$http,$location){
 	
 	$scope.submit = function()
 	{
@@ -13,6 +13,9 @@ app.controller('myCtrl',function($scope,$http){
 		.success(function(data,status,headers,config){
 		$scope.msg = "Data inserted Successfully";
 			$scope.clearform();
+			alert("Data Insert Successfully");
+			window.location = "vendorsdisplay.php";
+			
 		});
 		
 	}
@@ -31,6 +34,33 @@ app.controller('myCtrl',function($scope,$http){
 			$scope.status = "";
 			$scope.compliances = "";
 		}
+		
+		//display query
+		$scope.getdata = function()
+		{
+			
+			$http.get("vendorsselect.php")
+			.then(function(response)
+			{
+				$scope.names = response.data;
+				
+				
+			});
+				
+		}
+		
+		//fetch_vendorsid
+		$scope.loadvendorsid = function()
+		{
+			$http.get("fetch_vendorsid.php")
+			.then(function(response){
+				
+			$scope.vid = response.data;	
+				
+			});
+			
+		}
+	
 			
 	
 });	

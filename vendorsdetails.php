@@ -34,7 +34,7 @@
 
 	</head>
 		
-	<body ng-app="myApp" ng-controller="myCtrl">
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="loadvendorsid()">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -55,7 +55,7 @@
 		
 		<div class="col-md-2">
 		<label>Vendor ID:</label>
-		<input type="text" class="form-control"  name="vid" ng-model="vid">
+		<input type="text" class="form-control"  name="vid" ng-model="vid" readonly>
 		</div>
 		
 		<div class="col-md-4">
@@ -124,7 +124,7 @@
 	<hr>
 	
     <button type="submit" class="btn btn-primary" ng-click="submit();">Submit</button>
-	{{msg}}
+	
 	</div>
 	
 	</form>

@@ -7,15 +7,20 @@ $dbname = "ngo_db";
 
 try {
 	$data= json_decode(file_get_contents("php://input"));
-	$departmentid = $data->departmentid;
-	$departmentname = $data->departmentname;
-	$description = $data->description;
+	$clientid = $data->clientid;
+	$clientname = $data->clientname;
+	$address = $data->address;
+	$city = $data->city;
+	$contactp = $data->contactp;
+	$phonen = $data->phonen;
+	$mobilen = $data->mobilen;
+	$email = $data->email;
 	
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO  departments (DEP_ID,DEP_NAME,DESCRIPTION,DEL_DEP)
-    VALUES ('$departmentid', '$departmentname', '$description',1)";
+    $sql = "INSERT INTO  client_details (Client_ID,Client_Name,address,CITY,contact_person,phone_number,mobile_number,EMAIL_ID,DEL_CLI)
+    VALUES ('$clientid', '$clientname', '$address','$city','$contactp','$phonen','$mobilen','$email',1)";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";

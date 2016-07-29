@@ -29,14 +29,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-	
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="client.js"></script>
 
 	</head>
 		
-		<body >
-		<div id="wrapper" >
-		<?php
-		include('header.php');		
+		<body ng-app="myApp" ng-controller="myCtrl" ng-init="loadclientid()">
+			<div id="wrapper" >
+				<?php
+					include('header.php');		
 		?>
 		<div id="page-wrapper" style="background-color:;">
 	
@@ -51,7 +52,7 @@
 		<div class="row">
 		<div class="col-sm-2">
 		<label>Client ID:</label>
-		<input type="text" name="clientid" ng-model="clientid" class="form-control" required>
+		<input type="text" name="clientid" ng-model="clientid" class="form-control" required readonly>
 		</div>
 		
 		<div class="col-sm-10">
@@ -107,7 +108,8 @@
 		
 		<hr>
 		<div style="margin-left:94%">
-		<button class="btn btn-primary" name="submit" >Submit</button>
+		<button class="btn btn-primary" name="submit" ng-click="submit();">Submit</button>
+		{{msg}}
 		
 		</div>
 		</div>
