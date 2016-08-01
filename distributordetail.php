@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="distributordetail.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +34,7 @@
 
 	</head>
 		
-		<body >
+		<body ng-app="myApp" ng-controller="myCtrl" ng-init = "loadid();">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -49,12 +50,19 @@
 		
 		<div class="form-group">
 		<div class="row">
+		
+		<div class="col-sm-2">
+		<label>Distributor ID:</label>
+		<input type="text" name="distributorid" ng-model="distributorid" class="form-control" required readonly>
+		</div>
+		
+		
 		<div class="col-sm-6">
 		<label>Distributor Name:</label>
 		<input type="text" name="distributorname" ng-model="distributorname" class="form-control" required>
 		</div>
 		
-		<div class="col-sm-6">
+		<div class="col-sm-4">
 		<label>Distributor Type:</label>
 		<select type="text" name="distributortype" ng-model="distributortype" class="form-control" required>
 			<option>#</option>
@@ -116,8 +124,8 @@
 		
 		<hr>
 		<div style="margin-left:94%">
-		<button class="btn btn-primary" name="submit" >Submit</button>
-		
+		<button class="btn btn-primary" name="submit" ng-click="submit();" >Submit</button>
+		<div>{{msg}}</div>
 		</div>
 		</div>
 		
