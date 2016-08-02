@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="responsibleprojectdetail.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -33,7 +34,7 @@
 
 	</head>
 		
-		<body >
+		<body ng-app="myApp" ng-controller="myCtrl" ng-init="loadresponsibleid();">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -52,7 +53,7 @@
 		<div class="row">
 		<div class="col-sm-2">
 		<label>Project ID:</label>
-		<input type="text" name="pid" ng-model="pid" class="form-control" required>
+		<input type="text" name="pid" ng-model="pid" class="form-control" required readonly>
 		</div>
 		
 		<div class="col-sm-6">
@@ -81,11 +82,8 @@
 		
 		<div class="col-sm-8">
 		<label>Client Name:</label>
-		<select type="text" name="clientname" ng-model="clientname" class="form-control" required>
-			<option>#</option>
-			<option>#</option>
-			<option>#</option>
-			<option>#</option>
+		<select type="text" name="clientname" ng-model="clientname" class="form-control" ng-option="x.Client_Name for x in client" required>
+			
 		
 		</select>
 		</div>
@@ -141,8 +139,8 @@
 		
 		<hr>
 		<div style="margin-left:94%">
-		<button class="btn btn-primary" name="submit" >Submit</button>
-		
+		<button class="btn btn-primary" name="submit" ng-click="submit();">Submit</button>
+		{{msg}}
 		</div>
 		
 		
