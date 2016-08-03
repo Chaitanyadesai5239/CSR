@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="responsiveactivityproject.js"></script>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +36,7 @@
 	</head>
 		
 	
-	<body >
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="loadprojectname()">
 		<div id="wrapper" >
 		<?php
 		include('header.php');		
@@ -53,23 +55,20 @@
 		<div class="row">
 		<div class="col-sm-5">
 		<label>Project Name:</label>
-		<select type="text" name="projectname" ng-model="projectname" class="form-control" required>
-			<option>#</option>
-			<option>#</option>
-			<option>#</option>
-			<option>#</option>
+		<select type="text" name="projectname" ng-model="projectname" class="form-control" ng-options="x.PROJECT_NAME for x in names"required>
+			
 		
 		</select>
 		</div>
 			
 		<div class="col-sm-2">
 		<label > Date:</label>
-		<input type="date" class="form-control" placeholder="Enter Type" name="date">
+		<input type="date" class="form-control" placeholder="Enter Type" name="date" ng-model="date">
 		</div>
 		
 		<div class="col-sm-5">
       <label>Activity Name:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="activityname" ng-model="activityname">
 		</div>
 		</div><br>
 		
@@ -78,12 +77,12 @@
 		<div class="row">
 		<div class="col-md-5">
 		<label>Activity Details:</label>
-		<textarea type="text" class="form-control" name="activitydetails"></textarea>
+		<textarea type="text" class="form-control" name="activitydetails" ng-model="activitydetails"></textarea>
 		</div>
 		
 		<div class="col-md-4">
 		<label>Money Spent:</label>
-		<input type="text" class="form-control"  name="date">
+		<input type="text" class="form-control"  name="moneyspent" ng-model="moneyspent">
 		</div>
 	
 		</div><br>
@@ -92,14 +91,14 @@
 		<div class="row">
 		<div class="col-md-6">
 		<label>Comment:</label>
-		<textarea type="text" class="form-control" name="activitydetails" rows=6></textarea>
+		<textarea type="text" class="form-control" name="comment" ng-model="comment" rows=6></textarea>
 		</div>
 		</div><br>
 		
 		<div class="row">
 		<div class="col-xs-4">
 		<label >Employee:</label>
-		<select class="form-control "  >
+		<select class="form-control " name="employee" ng-model="employee" >
 		  <option>--Multiple Select--</option>
 			<option>#</option>
 			<option>#</option>
@@ -109,7 +108,7 @@
 			
 		<div class="col-xs-4">
 		<label >Images:</label>
-		<select class="form-control "  >
+		<select class="form-control "  name="images" ng-model="images">
 		<option>--Multiple image upload--</option>
 			<option>#</option>
 			<option>#</option>
@@ -119,7 +118,7 @@
 			
 		<div class="col-xs-4">
 		<label >Video:</label>
-		<select class="form-control "  >
+		<select class="form-control "  name="video" ng-model="video">
 		<option>--Multiple video upload--</option>
 			<option>#</option>
 			<option>#</option>
@@ -132,7 +131,8 @@
 	 
 	<hr>
 	
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary"  ng-click="submit()">Submit</button>
+	<div>{{msg}}</div>
 	</div>
 	
 	</form>
