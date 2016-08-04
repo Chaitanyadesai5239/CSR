@@ -13,7 +13,7 @@ try {
 	$activitydetails = $data->activitydetails;
 	$moneyspent = $data->moneyspent;
 	$comment = $data->comment;
-	$employee = $data->employee;
+	$eid = $data->eid;
 	$images = $data->images;
 	$video = $data->video;
 	
@@ -22,8 +22,8 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO  responsible_projects_details (PROJECT_ID,DATE,ACTIVITY_NAME,ACTIVITY_DETAILS,MONEY_SPENT,EMPLOYEE,IMAGES,VIDEOS,COMMENTS,COUNSULTANT_ID,COMMENTS)
-    VALUES ('$PROJECT_ID','$date', '$activityname', '$activitydetails','$moneyspent','$comment','$employee','$images','$video')";
+    $sql = "INSERT INTO  responsible_projects_details (PROJECT_ID,DATE,ACTIVITY_NAME,ACTIVITY_DETAILS,MONEY_SPENT,EMPLOYEE,IMAGES,VIDEOS,COMMENTS)
+    VALUES ('$PROJECT_ID','$date', '$activityname', '$activitydetails','$moneyspent','$eid','$images','$video','$comment')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";

@@ -98,11 +98,8 @@
 		<div class="row">
 		<div class="col-xs-4">
 		<label >Employee:</label>
-		<select class="form-control " name="employee" ng-model="employee" >
-		  <option>--Multiple Select--</option>
-			<option>#</option>
-			<option>#</option>
-			<option>#</option>
+		<select class="form-control " name="employee" ng-model="employee" ng-options="x.FIRST_NAME  + x.MIDDLE_NAME  +  x.LAST_NAME for x in name">
+		  
 			</select>
 			</div>
 			
